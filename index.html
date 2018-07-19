@@ -15,17 +15,14 @@
 </head>
 
 <body>
-
     <!-- Game Header -->
     <div class="jumbotron">
         <h1 class="text-center">HELLO, WORLD!</h1>
         <h2 class="text-center">Word Guess Game</h2>
         <br>
         <h3 class="text-center">Guess all the letters in the name of the country!</h3>
-        <h6 class="text-center">Press the button below to begin</h6>
-        <div class="text-center">
-            <button class="btn btn-primary btn-lg" id="startButton">Play!</button>
-        </div>
+        <h6 class="text-center">Press any key to begin!</h6>
+
     </div>
     <!-- Game Body -->
     <div class="container">
@@ -35,22 +32,23 @@
                 <img class="card-img-top" src="http://via.placeholder.com/400x200" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content
-                        is a little bit longer.</p>
                     <p class="card-text">
-                        <small class="text-muted">Last updated 3 mins ago</small>
+                        <div id="guessesLeft"> </div>
                     </p>
+
+
                 </div>
             </div>
 
             <!-- Displays the word to guess -->
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">
+                        <div id="wordInPlay"></div>
+                    </h5>
                     <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                    </p>
+
+
                 </div>
                 <img class="card-img-top" src="http://via.placeholder.com/400x200" alt="Card image cap">
             </div>
@@ -60,15 +58,17 @@
                 <img class="card-img-top" src="http://via.placeholder.com/400x200" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card
-                        has even longer content than the first to show that equal height action.</p>
                     <p class="card-text">
-                        <small class="text-muted">Last updated 3 mins ago</small>
+
+
+
                     </p>
                 </div>
             </div>
         </div>
     </div>
+    </div>
+    <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>

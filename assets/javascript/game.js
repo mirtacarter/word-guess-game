@@ -1,5 +1,5 @@
 // Create array of possible words to guess
-var possibleWords = ["PERU", "CHINA", "SPAIN", "PORTUGAL", "CANADA", "ICELAND"]
+var possibleWords = ["peru", "china", "spain", "portugal", "canada", "iceland"]
 
 // Generate random word to guess
 var generatedWord = possibleWords[Math.floor(Math.random() * possibleWords.length)];
@@ -14,32 +14,39 @@ var generatedWord = possibleWords[Math.floor(Math.random() * possibleWords.lengt
     var wins = 0;
 
 // Other variables
-    var string;
     var isPlaying = false;
+    var blanksInPlay;
 
 
+// Player presses key generate letter blanks for guessing
+document.onkeyup = function(event) {
+    for (var i = 0; i < generatedWord.length; i++) {
+        letterBlanks[i] = "_";
+    }
+    blanksInPlay = letterBlanks.join(" ");
+    document.getElementById("wordInPlay").innerHTML = blanksInPlay;
+}
 
-// This function begins the game
-document.onload = function(event) {
+document.onkeyup = function(event) {
 
-    // Event begins game upon page load
-   
-    // Function randomly chooses a word array from the possibleWords array
-    
+    // Record letters guessed by player, converts to lowercase, saved to variable
+var userGuess = event.key.toLowerCase();
 
-    // Create variable to hold game HTML. Game should start with default values:   
-        //Word Display - use randomly chosen word array length to generate HTML display of "_" for each letter
-        //lettersGuessed - blank
-        //remainingGuesses - 10
-        //wins - 0
-                
-    // Set inner HTML contents of the #game div to html variable
+    for (var i = 0; i < generatedWord.length; i++) {
+        // if the generated word contains a letter the user guessed, assign it to userGuess
+        if (generatedWord[i] === userGuess) {
+            letterBlanks[i] = userGuess;
+        }
+    }
+    remainingGuesses--;
+    document.getElementById("guessesLeft").innerHTML = "Remaining Guesses: " + remainingGuesses;
+    document.getElementById("wordInPlay").innerHTML = letterBlanks.join(" ");
+}
 
 
-    // Main game code runs when user presses a letter key
+  
 
-    // If the letter equals a value in the array, update Word Display in inner HTML from "_" to letter and add letter to lettersGuessed
-    // If the letter does not equal a value in the array, add letter to lettersGuessed and decrement remainingGuesses by 1
+
 
     // User continues to press keys until all letters are revealed and user wins (wins + 1) or remainingGuesses = 0
 
@@ -52,7 +59,7 @@ document.onload = function(event) {
         
 
 
-}
+
 
 
 
