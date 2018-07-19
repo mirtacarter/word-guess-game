@@ -1,11 +1,5 @@
-// Create arrays of letters for each word to be guessed
-var word1 = ["p", "e", "r", "u"]
-var word2 = ["c", "h", "i", "n", "a"]
-var word3 = ["s", "p", "a", "i", "n"]
-var word4 = ["p", "o", "r", "t", "u", "g", "a", "l"]
-var word5 = ["c", "a", "n", "a", "d", "a"]
-var word6 = ["i", "c", "e", "l", "a", "n", "d"]
-var possibleWords = [word1, word2, word3, word4, word5, word6]
+// Create array of possible words to guess
+var possibleWords = ["PERU", "CHINA", "SPAIN", "PORTUGAL", "CANADA", "ICELAND"]
 
 // Create scoring variables and default values 
     // These will reset at the end of each round
@@ -20,6 +14,7 @@ document.onload = function(event) {
     // Event begins game upon page load
    
     // Function randomly chooses a word array from the possibleWords array
+    
 
     // Create variable to hold game HTML. Game should start with default values:   
         //Word Display - use randomly chosen word array length to generate HTML display of "_" for each letter
