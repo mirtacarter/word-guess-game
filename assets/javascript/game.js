@@ -16,6 +16,7 @@ var generatedWord = possibleWords[Math.floor(Math.random() * possibleWords.lengt
 // Other variables
     var isPlaying = false;
     var blanksInPlay;
+    var usedLetters;
 
 
 // Player presses key generate letter blanks for guessing
@@ -25,23 +26,37 @@ document.onkeyup = function(event) {
     }
     blanksInPlay = letterBlanks.join(" ");
     document.getElementById("wordInPlay").innerHTML = blanksInPlay;
+
 }
+function recordGuess() {
 
-document.onkeyup = function(event) {
-
-    // Record letters guessed by player, converts to lowercase, saved to variable
-var userGuess = event.key.toLowerCase();
-
+    // Record letters guessed by player, saves to variable, and pushes to lettersGuessed array
+    var userGuess = document.getElementById("letter").value;
+    
+    // Make sure a letter is input
+    if (userGuess.length > 0) {
     for (var i = 0; i < generatedWord.length; i++) {
         // if the generated word contains a letter the user guessed, assign it to userGuess
         if (generatedWord[i] === userGuess) {
             letterBlanks[i] = userGuess;
-        }
     }
+    }
+    // Display used letters
+    lettersGuessed.push(userGuess);
+    document.getElementById("usedLetterDisplay").innerHTML = lettersGuessed.toString();
+
     remainingGuesses--;
     document.getElementById("guessesLeft").innerHTML = "Remaining Guesses: " + remainingGuesses;
     document.getElementById("wordInPlay").innerHTML = letterBlanks.join(" ");
+    }
+    if (remainingGuesses = 0) {
+        
+
+    }
 }
+
+
+
 
 
   
