@@ -1,12 +1,23 @@
 // Create array of possible words to guess
 var possibleWords = ["PERU", "CHINA", "SPAIN", "PORTUGAL", "CANADA", "ICELAND"]
 
+// Generate random word to guess
+var generatedWord = possibleWords[Math.floor(Math.random() * possibleWords.length)];
+
+
 // Create scoring variables and default values 
     // These will reset at the end of each round
     var remainingGuesses = 10;
-    var lettersGuessed = []
+    var lettersGuessed = [];
+    var letterBlanks = [];
     // These will not reset at each round
     var wins = 0;
+
+// Other variables
+    var string;
+    var isPlaying = false;
+
+
 
 // This function begins the game
 document.onload = function(event) {
