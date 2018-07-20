@@ -1,59 +1,84 @@
 // Create array of possible words to guess
 var possibleWords = ["peru", "china", "spain", "portugal", "canada", "iceland"]
 
-// Generate random word to guess
-var generatedWord = possibleWords[Math.floor(Math.random() * possibleWords.length)];
-
-
 // Create scoring variables and default values 
     // These will reset at the end of each round
     var remainingGuesses = 10;
-    var lettersGuessed = [];
     var letterBlanks = [];
+    var lettersGuessed = [];
     // These will not reset at each round
     var wins = 0;
+    var losses = 0;
 
 // Other variables
     var isPlaying = false;
     var blanksInPlay;
     var usedLetters;
+    var generatedWord = " ";
 
+// event reference
+    var userGuess = document.getElementById("letter").value;
 
-// Player presses key generate letter blanks for guessing
+// User presses key to start game
 document.onkeyup = function(event) {
-    for (var i = 0; i < generatedWord.length; i++) {
-        letterBlanks[i] = "_";
+        userGuess = event.key;
+        isPlaying = true;
     }
+
+// Round begins and appropriate variables are reset to default
+function startRound() {  
+    if (isPlaying = true) {
+    remainingGuesses = 10;
+    letterBlanks = [];
+    lettersGuessed = [];
+
+
+// Generate random word to guess
+generatedWord = possibleWords[Math.floor(Math.random() * possibleWords.length)];
+
+// Create letter blanks for word in play using loop on generatedWord
+for (var i = 0; i < generatedWord.length; i++) {
+            letterBlanks.push("_");
+        }
+    
+// Push letter blanks to html
     blanksInPlay = letterBlanks.join(" ");
     document.getElementById("wordInPlay").innerHTML = blanksInPlay;
-
+    }
 }
-function recordGuess() {
 
-    // Record letters guessed by player, saves to variable, and pushes to lettersGuessed array
-    var userGuess = document.getElementById("letter").value;
-    
-    // Make sure a letter is input
-    if (userGuess.length > 0) {
+// Check if the letter guessed by the player is in the word in play
+function checkGuess(userGuess){
     for (var i = 0; i < generatedWord.length; i++) {
-        // if the generated word contains a letter the user guessed, assign it to userGuess
         if (generatedWord[i] === userGuess) {
-            letterBlanks[i] = userGuess;
+// If the letter matches a letter in the generated word, replace the letter bank with the letter            
+            letterBlanks[i] === generatedWord[i];
     }
     }
+
     // Display used letters
     lettersGuessed.push(userGuess);
     document.getElementById("usedLetterDisplay").innerHTML = lettersGuessed.toString();
 
     remainingGuesses--;
     document.getElementById("guessesLeft").innerHTML = "Remaining Guesses: " + remainingGuesses;
-    document.getElementById("wordInPlay").innerHTML = letterBlanks.join(" ");
+    document.getElementById("wordInPlay").innerHTML = letterBlanks.textContent.join(" ");
     }
-    if (remainingGuesses = 0) {
-        
 
+function gameOver() {
+    if (generatedWord === letterBlanks.join(" ")){
+        wins++;
+        isPlaying = false;
+        document.getElementById("wins").innerHTML = "Wins: " + wins;
+        document.getElementById("gameEnd").innerHTML = "YOU WIN!!";
+    }
+    if (remainingGuesses === 0) {
+        isPlaying = false;
+        document.getElementById("gameEnd").innerHTML = "Better luck next time!"
     }
 }
+
+
 
 
 
