@@ -16,7 +16,7 @@
 
 <body>
     <!-- Game Header -->
-    <div class="jumbotron">
+    <div class="jumbotron bg-info text-white">
         <h1 class="text-center">HELLO, WORLD!</h1>
         <h2 class="text-center">Word Guess Game</h2>
         <br>
@@ -29,10 +29,10 @@
         <div class="card-group">
             <!-- Displays letters guessed and number of remaining guesses -->
             <div class="card">
-                <img class="card-img-top" src="http://via.placeholder.com/400x200" alt="Card image cap">
+                <img class="card-img-top" src="assets/images/left.jpg" width="200" height="150" alt="Card image cap">
                 <div class="card-body">
                
-                    <p class="card-text">
+                    <p class="card-text" style="text-align:center">
                         <div id="guessesLeft"> </div>
                         <div id="usedLetterDisplay"> </div>
                     </p>
@@ -43,22 +43,22 @@
             <!-- Displays the word to guess -->
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">
+                    <h5 class="card-title" style="text-align:center">
                         <div id="wordInPlay"> </div>
                         <br>
-                        <p><input type="text" id="letter" oninput="startRound()"> </p>
+                        <p><input type="text" id="letter"> </p>
                     </h5>
 
                 </div>
-                <img class="card-img-top" src="http://via.placeholder.com/400x200" alt="Card image cap">
+                <img class="card-img-top" src="assets/images/center.jpg" width="200" height="150"  alt="Card image cap">
             </div>
 
             <!-- Displays score and win/loss message -->
             <div class="card">
-                <img class="card-img-top" src="http://via.placeholder.com/400x200" alt="Card image cap">
+                <img class="card-img-top" src="assets/images/right.jpg" width="200" height="150"  alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title"><span id="wins"> </span></h5>
-                    <p class="card-text">
+                    <p class="card-text" style="text-align:center">
                         <div id="gameEnd">
 
                         </div>

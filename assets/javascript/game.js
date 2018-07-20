@@ -11,30 +11,16 @@ var possibleWords = ["peru", "china", "spain", "portugal", "canada", "iceland"]
     var losses = 0;
 
 // Other variables
-    var isPlaying = false;
+    var isPlaying = true;
     var blanksInPlay;
     var usedLetters;
-    var generatedWord = " ";
 
-// event reference
-    var userGuess = document.getElementById("letter").value;
+// Generate random word to guess
+var generatedWord = possibleWords[Math.floor(Math.random() * possibleWords.length)];
 
 // User presses key to start game
 document.onkeyup = function(event) {
-        userGuess = event.key;
-        isPlaying = true;
-    }
-
-// Round begins and appropriate variables are reset to default
-function startRound() {  
-    if (isPlaying = true) {
-    remainingGuesses = 10;
-    letterBlanks = [];
-    lettersGuessed = [];
-
-
-// Generate random word to guess
-generatedWord = possibleWords[Math.floor(Math.random() * possibleWords.length)];
+    var playGame = event.key;
 
 // Create letter blanks for word in play using loop on generatedWord
 for (var i = 0; i < generatedWord.length; i++) {
@@ -44,26 +30,30 @@ for (var i = 0; i < generatedWord.length; i++) {
 // Push letter blanks to html
     blanksInPlay = letterBlanks.join(" ");
     document.getElementById("wordInPlay").innerHTML = blanksInPlay;
-    }
 }
 
+
 // Check if the letter guessed by the player is in the word in play
-function checkGuess(userGuess){
+function checkGuess(){
+    var userGuess = document.getElementById("letter").value;
+
     for (var i = 0; i < generatedWord.length; i++) {
         if (generatedWord[i] === userGuess) {
 // If the letter matches a letter in the generated word, replace the letter bank with the letter            
-            letterBlanks[i] === generatedWord[i];
+            letterBlanks[i] == userGuess;
     }
     }
 
-    // Display used letters
+    // Display used letters 
     lettersGuessed.push(userGuess);
     document.getElementById("usedLetterDisplay").innerHTML = lettersGuessed.toString();
 
     remainingGuesses--;
     document.getElementById("guessesLeft").innerHTML = "Remaining Guesses: " + remainingGuesses;
     document.getElementById("wordInPlay").innerHTML = letterBlanks.textContent.join(" ");
+
     }
+
 
 function gameOver() {
     if (generatedWord === letterBlanks.join(" ")){
@@ -77,21 +67,6 @@ function gameOver() {
         document.getElementById("gameEnd").innerHTML = "Better luck next time!"
     }
 }
-
-
-
-
-
-
-
-  
-
-
-
-    // User continues to press keys until all letters are revealed and user wins (wins + 1) or remainingGuesses = 0
-
-    // Game resets to all defaults with the exception of wins
-    // Looped until all arrays in possibleWords display have been accessed
 
 
 
