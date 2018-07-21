@@ -12,63 +12,111 @@
         crossorigin="anonymous">
 
     <title>Hello, World - Word Guess Game</title>
+    <style>
+        body {
+            background-image: url("assets/images/bg.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+        }
+
+        .gamebody {
+            margin-top: 10%;
+        }
+
+        #banner {
+            background-color: #ffffff;
+            border: 2px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        #header {
+            background-color: #ffffff;
+            border: 2px;
+            padding: 10px;
+        }
+    </style>
+
 </head>
 
 <body>
     <!-- Game Header -->
-    <div class="jumbotron bg-info text-white">
-        <h1 class="text-center">HELLO, WORLD!</h1>
-        <h2 class="text-center">Word Guess Game</h2>
-        <br>
-        <h3 class="text-center">Guess all the letters in the name of the country!</h3>
-        <h6 class="text-center">Press any key to begin!</h6>
-
-    </div>
-    <!-- Game Body -->
-    <div class="container">
-        <div class="card-group">
-            <!-- Displays letters guessed and number of remaining guesses -->
-            <div class="card">
-                <img class="card-img-top" src="assets/images/left.jpg" width="200" height="150" alt="Card image cap">
-                <div class="card-body">
-               
-                    <p class="card-text" style="text-align:center">
-                        <div id="guessesLeft"> </div>
-                        <div id="usedLetterDisplay"> </div>
-                    </p>
-
-                </div>
-            </div>
-
-            <!-- Displays the word to guess -->
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title" style="text-align:center">
-                        <div id="wordInPlay"> </div>
-                        <br>
-                        <p><input type="text" id="letter"> </p>
-                    </h5>
-
-                </div>
-                <img class="card-img-top" src="assets/images/center.jpg" width="200" height="150"  alt="Card image cap">
-            </div>
-
-            <!-- Displays score and win/loss message -->
-            <div class="card">
-                <img class="card-img-top" src="assets/images/right.jpg" width="200" height="150"  alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><span id="wins"> </span></h5>
-                    <p class="card-text" style="text-align:center">
-                        <div id="gameEnd">
-
-                        </div>
-
-                    </p>
-                </div>
+    <div class="gamebody">
+        <div class="container">
+            <div id="banner">
+                <h1 class="text-center">HELLO, WORLD!</h1>
+                <h2 class="text-center">Word Guess Game</h2>
             </div>
         </div>
+        <div class="container">
+            <br>
+            <div id="header">
+                <h4 class="text-center">Guess all the letters in the name of the country!</h4>
+                <br>
+                <h5 class="text-center">Pick a letter to begin.</h5>
+            </div>
+            <br>
+        </div>
+        <div class="container">
+            <div class="card-group">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align:center">
+                            Guess the word!
+                            <br>
+                            <h3 class="card-title" style="text-align:center">
+                                <div id="current-word"> </div>
+                            </h3>
+
+                            <br>
+                            <h5 class="card-title" style="text-align:center">
+                                Letters Guessed:
+                                <br>
+                                <p>
+                                    <div id="guessed-letters"></div>
+                            </h5>
+                            </p>
+                    </div>
+                </div>
+
+                <!-- Displays the word to guess -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <p class="card-title" style="text-align:center">
+                                Remaining Guesses:
+                                <div id="guesses-remaining" style="text-align:center"> </div>
+
+                            </p>
+                        </h5>
+                    </div>
+
+                    <!-- Displays score and win/loss message -->
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <p class="card-text" style="text-align:center">
+                                    Wins:
+                                    <div id="wins" style="text-align:center">
+
+                                    </div>
+
+                                </p>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+            
+        </div>
     </div>
-    </div>
+
+
+
     <script src="assets/javascript/game.js"></script>
 </body>
 
