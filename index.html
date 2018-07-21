@@ -38,6 +38,23 @@
             border: 2px;
             padding: 10px;
         }
+
+        #mobile-input {
+            display: none;
+        }
+
+    @media screen and (max-width: 400px) {
+        #mobile-input {
+            display: inline-block;
+            margin-left: 42%;
+            margin-bottom: 10px;
+            }
+            
+        input {
+            width: 25%;
+        }
+    }
+
     </style>
 
 </head>
@@ -70,7 +87,8 @@
                             <h3 class="card-title" style="text-align:center">
                                 <div id="current-word"> </div>
                             </h3>
-
+                            <br>
+                            <div id="mobile-input"><input type="text"></div>
                             <br>
                             <h5 class="card-title" style="text-align:center">
                                 Letters Guessed:
